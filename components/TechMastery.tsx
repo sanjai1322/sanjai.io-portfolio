@@ -60,7 +60,7 @@ const SkillCard = ({ category, skills, icon, color, index }: any) => {
             <IconComponent className={`w-6 h-6 ${color === "red" ? "text-accent-red" : "text-accent-blue"}`} />
           </div>
           <span className="font-jetbrains text-[10px] text-text-secondary tracking-widest uppercase">
-            {index + 1 < 10 ? `0${index + 1}` : index + 1} // MASTER_LEVEL
+            {index + 1 < 10 ? `0${index + 1}` : index + 1} {"// MASTER_LEVEL"}
           </span>
         </div>
 
@@ -118,7 +118,7 @@ export default function TechMastery() {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <span className="text-accent-red">{"root@sanjai:~# "}</span>
-            cat skills.json | jq '.technical_expertise'
+            cat skills.json | jq &apos;.technical_expertise&apos;
             <br />
             <span className="text-text-accent mt-2 block">
               Architecting high-performance systems with modern AI-driven tech stacks and cinematic user experiences.

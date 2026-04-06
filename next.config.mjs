@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [],
+    domains: ["deifkwefumgah.cloudfront.net"],
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
