@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #111118;
+  --bg-card: #16161E;
+  --accent-red: #FF1A1A;
+  --accent-blue: #1A8FFF;
+  --accent-red-glow: rgba(255, 26, 26, 0.15);
+  --accent-blue-glow: rgba(26, 143, 255, 0.12);
+  --text-primary: #F0F0F5;
+  --text-secondary: #8888A0;
+  --text-accent: #CCCCDD;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 26, 26, 0.8);
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, #FF1A1A 0%, #1A8FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, #FF1A1A 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 26, 26, 0.3);
+  color: #F0F0F5;
+}
+
+/* Speed lines decorative effect */
+.speed-lines::before,
+.speed-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 2;
+}
+.speed-lines::before {
+  left: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 26, 26, 0.03) 2px,
+    rgba(255, 26, 26, 0.03) 4px
+  );
+}
+.speed-lines::after {
+  right: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(26, 143, 255, 0.03) 0,
+    rgba(26, 143, 255, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* Card hover glow */
+.card-glow-red:hover {
+  box-shadow: 0 0 30px rgba(255, 26, 26, 0.15), 0 0 60px rgba(255, 26, 26, 0.05);
+  border-color: rgba(255, 26, 26, 0.3) !important;
+}
+
+.card-glow-blue:hover {
+  box-shadow: 0 0 30px rgba(26, 143, 255, 0.15), 0 0 60px rgba(26, 143, 255, 0.05);
+  border-color: rgba(26, 143, 255, 0.3) !important;
+}
+
+/* Red underline animated accent */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent-red);
+  transition: width 0.8s ease-out;
+}
+.accent-underline.animated::after {
+  width: 60px;
+}
+
+/* Blue underline variant */
+.accent-underline-blue::after {
+  background: var(--accent-blue) !important;
+}
+
+/* Constellation dots background */
+.constellation-bg {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Lens flare / light streak */
+.light-streak {
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 26, 26, 0.4), transparent);
+  transform: rotate(-30deg);
+  pointer-events: none;
+}
+
+/* Input focus glow */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-red) !important;
+  box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.3);
+}
+
+/* Magnetic button */
+.magnetic-btn {
+  transition: transform 0.15s ease-out;
+}
+
+/* Marquee pause on hover */
+.marquee-container:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+/* Image tilt 3D */
+.tilt-3d {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+.tilt-3d:hover {
+  transform: perspective(800px) rotateY(-5deg) rotateX(2deg) scale(1.02);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-dm {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .font-jetbrains {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
